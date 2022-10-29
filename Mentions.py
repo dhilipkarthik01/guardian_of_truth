@@ -1,5 +1,7 @@
 import tweepy
+import json
 from Tweepy_Authentication import TweepyAuthentication
+
 
 class ReferencedMentions:
     def __init__(self, client):
@@ -15,23 +17,14 @@ class ReferencedMentions:
 
         print(response)
 
-
-API_KEY = "Ecq8C2SIYzXNXT6QM2zFJoXqf"
-API_KEY_SECRET = "MqFZRV8Vykpo6EaKpjoFUPGcTS0UEP5i90lOWP3RnghjdsGopQ"
-ACCESS_TOKEN = "1561265656020242434-p6bAYeAAqNQORlZRufbYt4d399gFrY"
-ACCESS_TOKEN_SECRET = "q0YGuwwAVpRObIGUguNARKOLukpXODtsF1kB9KSbWWoig"
-USERNAME = "got_truth101"
 if __name__ == "__main__":
     tweepy_auth = TweepyAuthentication(
-        api_key=API_KEY,
-        api_key_secret=API_KEY_SECRET,
-        access_token=ACCESS_TOKEN,
-        access_token_secret=ACCESS_TOKEN_SECRET
+        keys_file="Keys.json"
     )
 
     client = tweepy_auth.getClient()
     user = client.get_user(
-        username=USERNAME,
+        username="got_truth101",
         user_auth=True
     )
     print(user.data.id)
