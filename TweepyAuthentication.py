@@ -5,7 +5,7 @@ class TweepyAuthentication:
     Used to obtain the correct type of tweepy Client object based on the purpose.
     """
 
-    def __init__(self, api_key=None, api_key_secret=None,
+    def __init__(self, version_2=True, api_key=None, api_key_secret=None,
         access_token=None, access_token_secret=None, keys_file=None):
         """
         Params
@@ -37,12 +37,21 @@ class TweepyAuthentication:
             if access_token_secret is None:
                 access_token_secret = keys["ACCESS_TOKEN_SECRET"]
 
-        self.client = tweepy.Client(
-            consumer_key=api_key,
-            consumer_secret=api_key_secret,
-            access_token=access_token,
-            access_token_secret=access_token_secret
-        )
+        if version_2:
+            self.client = tweepy.Client(
+                consumer_key=api_key,
+                consumer_secret=api_key_secret,
+                access_token=access_token,
+                access_token_secret=access_token_secret
+            )
+        else:
+            auth = tweepy.OAuth1UserHandler(
+                consumer_key=api_key,
+                consumer_secret=api_key_secret,
+                access_token=access_token,
+                access_token_secret=access_token_secret
+            )
+            self.client = tweepy.API(auth)
 
     def getClient(self):
         """
@@ -53,4 +62,3 @@ class TweepyAuthentication:
         tweepy.Client
         """
         return self.client
-
