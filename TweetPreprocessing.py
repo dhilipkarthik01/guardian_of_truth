@@ -1,14 +1,16 @@
 import re
 class TweetPreprocessing:
-    def __init__(self, tweet):
-        self.tweet = tweet
+    def __init__(self):
+        pass
     
-    def process(self):
+    def process(self, tweet):
+        self.tweet = tweet
         self.removeHashtagsMentions()
         self.removeEmojis()
         self.removeLinks()
         self.removeWhitespaceCharacters()
         self.removeSpecialCharacters()
+        return self
 
     def removeEmojis(self):
         regrex_pattern = re.compile(pattern = "["
