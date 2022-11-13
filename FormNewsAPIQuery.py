@@ -3,7 +3,7 @@ class FormNewsAPIQuery:
     def process(self, keywords):
         st = ""
         for word in keywords:
-            st += " \"" + word + "\" "
+            st += " \"" + word + "\""
         st = st.strip()
         self.query = st
         return self

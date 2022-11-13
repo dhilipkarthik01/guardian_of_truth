@@ -36,7 +36,7 @@ class Term_Freq:
 
         # %%
         # building the index
-        sims = gensim.similarities.Similarity('/Sem7/Projects/GuardianOfTruth/',tf_idf[corpus],
+        sims = gensim.similarities.Similarity(r'C:\Users\Rizwan Local User\Documents\Guardian_Of_Truth\GuardianOfTruth_CommandLine',tf_idf[corpus],
                                                 num_features=len(dictionary))
 
         # %%
