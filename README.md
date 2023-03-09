@@ -19,3 +19,10 @@ the tweet in hand to generate a truth score.
 - Ranking: When searching for articles rank them based on most
 similarity and relatedness
 
+# Steps to Execute
+1. Create a python virtual environment
+2. Install required libraries from requirements.txt
+3. Feed your twiiter bot account API key values in keys.json file
+4. Run main.py 
+
+
